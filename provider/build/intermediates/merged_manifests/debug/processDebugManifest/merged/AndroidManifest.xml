@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.provider.app"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="20"
+        android:targetSdkVersion="28" />
+
+    <permission
+        android:name="de.test.READ_DATABASE"
+        android:protectionLevel="normal" />
+    <permission
+        android:name="de.test.WRITE_DATABASE"
+        android:protectionLevel="normal" />
+
+    <application
+        android:allowBackup="true"
+        android:debuggable="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:testOnly="true"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.provider.app.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name="com.provider.app.BirthProvider"
+            android:authorities="com.provider.app.BirthdayProv"
+            android:exported="true"
+            android:readPermission="de.test.READ_DATABASE"
+            android:writePermission="de.test.WRITE_DATABASE" />
+    </application>
+
+</manifest>
